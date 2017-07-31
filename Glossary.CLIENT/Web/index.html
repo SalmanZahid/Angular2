@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="GlossaryModule">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Glossary</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <base href="/" /> 
+</head>
+<body>
+    <nav class="navbar navbar-default" style="background-color: indigo; ">
+        <div class="container-fluid">
+            <div >
+                <a class="navbar-brand" href="#">Glossary Test Application</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        <div data-ng-view="">
+        </div>
+        <hr />
+    </div>
+    <div id="snackbar">Deleted</div>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+
+    <script src="app/glossaryApp.js"></script>
+    <script src="app/services/baseService.js"></script>
+    <script src="app/services/glossaryService.js"></script>
+    <script src="app/controller/glossaryController.js"></script>
+    <script>
+        function SnackBar() {
+            var snackBar = document.getElementById("snackbar")
+            snackBar.className = "show";
+            setTimeout(function () { snackBar.className = snackBar.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!-- BEGIN BREADCRUMB -->
+<div>
+    <div class="content-header">
+        <ul class="breadcrumb">
+            <li>
+                <strong>
+                    <a href="glossary">Glossary Term</a>
+                </strong>
+            </li>
+            <li ng-show="operation=='new'">
+                <strong>New</strong>
+            </li>
+            <li ng-show="operation=='edit'">
+                <strong>Edit</strong>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- END BREADCRUMB -->
+<!-- BEGIN CREATE OR EDIT FORM -->
+<div class="form">
+    <form name="GlossaryTermForm" class="form-validate form-horizontal" method="post" action="">
+        <div ng-class="messageHandler.error ? 'alert alert-danger':'alert alert-success'" ng-show="messageHandler.show">
+            <strong>{{ messageHandler.message }}</strong>
+        </div>
+        <div class="form-group ">
+            <label for="cname" class="control-label col-lg-2">Term </label>
+            <div class="col-lg-10">
+                <input class="form-control" ng-model="glossaryTerm.term" type="text" focus="true" required />
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="contact" class="control-label col-lg-2">Definition</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" ng-model="glossaryTerm.definition" rows="4" cols="20" required></textarea>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="button" id="add" class="btn btn-success" ng-show="operation=='new'" ng-disabled="!GlossaryTermForm.$valid" data-loading-text="Processing..." ng-click="Add()">Add</button>
+        <button type="button" id="edit" class="btn btn-success" ng-show="operation=='edit'" ng-disabled="!GlossaryTermForm.$valid" data-loading-text="Processing..." ng-click="Edit()">Update</button>
+        <a href="#glossary" class="btn btn-primary" role="button">Back to list</a>
+    </div>
+</div>
+<!-- END CREATE OR EDIT FORM -->

@@ -1,0 +1,45 @@
+﻿<!-- BEGIN SEARCH AND NEW TERM ROW -->
+<div class="row">
+    <div class="col-sm-6">
+        <input type="text" class="form-control pull-left" ng-model="searchText" placeholder="Search" />
+    </div>
+    <div class="col-sm-6">
+        <a href="#addglossaryterm" class="btn btn-success pull-right" role="button"><i class="fa fa-plus fa-fw" aria-hidden="true"></i>New Term</a>
+    </div>
+</div>
+<!-- END SEARCH AND NEW TERM ROW -->
+<!-- BEGIN GLOSSARY TERM LIST -->
+<div class="row">
+    <br />
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="1">Term</th>
+                        <th>Definition</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="glossaryTerm in glossaryTermList | filter:search">
+                        <td>{{ glossaryTerm.term }}</td>
+                        <td>{{ glossaryTerm.definition }}</td>
+                        <td>
+                            <div>
+                                <button class="btn btn-primary" ng-click="navigateEdit(glossaryTerm.Id)">Edit</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <button class="btn btn-danger" ng-click="Delete(glossaryTerm.Id,$index)">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- END GLOSSARY TERM LIST -->
